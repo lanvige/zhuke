@@ -1,0 +1,10 @@
+= form_for [@content, @comment] do |f|
+  = @content.title
+  %br
+  = @content.id
+  %br
+  .field
+    = f.text_area :con, :style => "width:420px; height:80px;"
+    
+  .actions
+    = f.submit 'Save'

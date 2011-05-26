@@ -1,0 +1,14 @@
+- if contents.length > 0
+  - for content in contents
+    .stream_element{ :data => { :guid => content.id } }
+      .sm_body
+        %a{ :herf => "/" }
+          %img{ :class => "avatar", :src => "/images/thumb_small.jpg" }
+          
+        .content
+          .from
+            =link_to content.title, content
+          %p
+            =link_to content.user.username, user_path(content.user)
+          %p
+            = (content.content).html_safe

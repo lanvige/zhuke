@@ -1,0 +1,142 @@
+#publisher {
+  z-index: 0;
+  color: #999;
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding: 12px;
+  padding-top: 1px;
+  top: 0;
+  border-bottom: 2px #777 solid;
+}
+#publisher h3{
+  width: 150px;
+}
+
+
+.stream .stream_element {
+padding: 20px 20px;
+min-height: 50px;
+border-bottom: 1px solid #DDD;
+border-top: 1px solid white;
+}
+.stream_element {
+position: relative;
+word-wrap: break-word;
+color: #888;
+font-size: 14px;
+}
+
+.stream .avatar {
+float: left;
+}
+.avatar {
+width: 50px;
+height: 50px;
+}
+.stream_element .content {
+margin-top: 0;
+padding-left: 60px;
+color: #666;
+font-weight: normal;
+}
+
+
+.stream_element .content p {
+margin-bottom: 0;
+font-size: 13px;
+line-height: 18px;
+}
+p {
+word-wrap: break-word;
+}
+
+
+
+
+#home_user_badge {
+position: relative;
+margin-bottom: 1em;
+border-bottom: 1px solid #CCC;
+padding-left: 60px;
+}
+
+#home_user_badge img {
+position: absolute;
+left: 0;
+}
+
+#home_user_badge h3 {
+position: relative;
+top: 4px;
+}
+h3, h4 {
+padding-bottom: 5px;
+}
+h1, h2, h3, h4, h5 {
+color: #333;
+position: relative;
+font-weight: bold;
+}
+
+.right {
+position: absolute;
+right: 0;
+}
+
+
+h2 .description, h3 .description, h4 .description {
+font-size: 80%;
+font-weight: 200;
+}
+h1 .description, h2 .description, h3 .description, h4 .description {
+font-size: 70%;
+font-weight: 100;
+color: #AAA;
+margin-top: .5em;
+}
+
+
+.invite_friends {
+padding: 1em;
+background-color: #EEE;
+border: 1px solid #CCC;
+}
+.section {
+margin-bottom: 24px;
+}
+
+.button, .button_set {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+background: #E3E3E3;
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$from,endColorstr=$to);
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#F6F6F6, endColorstr=#D0D0D0)";
+background: -webkit-gradient(linear,0% 0,0% 100%,from(#F6F6F6),to(#D0D0D0));
+background: -moz-linear-gradient(top,#F6F6F6 0,#D0D0D0 100%);
+font-style: normal;
+font-weight: bold;
+font-family: "helvetica",sans-serif;
+display: inline;
+padding: 5px 5px;
+min-width: 26px;
+font-size: 13px;
+line-height: 13px;
+min-height: 10px;
+border: 1px solid #AAA;
+border-top: 1px solid #CCC;
+border-bottom: 1px solid #666;
+cursor: pointer;
+color: #4A4A4A;
+text-shadow: 0 1px 1px #EEE;
+}
+
+
+.profile_photo img {
+-webkit-box-shadow: 0 2px 2px #333;
+-moz-box-shadow: 0 2px 2px #333;
+box-shadow: 0 2px 2px #333;
+height: 300px;
+width: 300px;
+}

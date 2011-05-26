@@ -1,0 +1,22 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.container{:style => "position:relative;"}
+  = link_to image_tag('logo_large.png', :height => "32px", :width => "142px", :class => "diaspora_header_logo"), root_path
+
+  .right
+    %ul#landing_nav
+      - if !current_user
+        %li
+          = link_to 'blog', new_user_session_path
+        %li
+          = link_to 'login', new_user_session_path, :class => 'login'
+
+      - elsif (current_user || !@landing_page)
+        = link_to 'Users', users_path
+        = link_to current_user.username, current_user
+        %li
+          = link_to 'Profile', edit_user_path(current_user)
+        %li
+          = link_to 'Logout', destroy_user_session_path

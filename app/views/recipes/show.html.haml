@@ -1,0 +1,22 @@
+%h1
+  = @recipe.title
+
+%br
+= (@recipe.content).html_safe
+
+%br
+%br
+= link_to 'Edit Recipe', edit_recipe_path(@recipe)
+
+%br
+%br
+
+%h5 Comments
+%table
+  %tr
+  - @comments.each do |comment|
+    %tr
+      %td 
+        = comment.con
+
+= render"comment"

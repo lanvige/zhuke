@@ -1,0 +1,43 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.edit_account')
+
+#section_header
+  %h2
+    = 'Settings'
+  %ul#settings_nav
+    %li=link_to 'Profile', edit_user_path(current_user)
+    %li=link_to 'Account', edit_user_path(current_user)
+
+.span-19.prepend-5.last
+  %h2
+    = 'Account'
+
+  .span-8.append-2
+    %h3
+      = 'Your Handle'
+    %p
+      %b= current_user.username
+  .span-8.last
+    %h3
+      = 'your_email'
+    %p
+      = current_user.email
+
+  %br
+  %br
+  %hr
+  %br
+
+
+  - simple_form_for(@user, :html => { :enctype =>  "multipart/form-data" }) do |f|
+    %p
+      = f.input :avatar
+      
+    .submit_block
+      = f.button :submit, :label => 'Change Password', :value => 'Update'
+      Or
+      = link_to 'Cancel', edit_user_path(current_user) 

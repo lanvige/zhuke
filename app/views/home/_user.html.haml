@@ -1,0 +1,10 @@
+.span-15.append-2
+  #stream_container
+    = render 'stream',
+      :contents => @contents,
+      :user => @user
+  %br
+
+/ Show the right sidebar
+.span-7.last{:style => "height:400px;"}
+  = render "sidebar", :user => @user

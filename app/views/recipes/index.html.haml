@@ -1,0 +1,16 @@
+%h1 Listing Recipes
+
+%table
+  %tr
+    %th title
+    %th Content
+    
+  - @recipes.each do |recipe|
+    %tr
+      %td 
+        = link_to recipe.title, text
+      %td
+        = recipe.content
+      
+= link_to 'New Recipe', new_recipe_path
+

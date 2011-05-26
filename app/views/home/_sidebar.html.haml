@@ -1,0 +1,16 @@
+#home_user_badge
+  %img{ :class => "avatar", :src => "/images/thumb_small.jpg" }
+  %h3{:style => "position:relative;"}
+    = current_user.username
+    .description
+      = link_to current_user.username, user_path(current_user)
+      /= info_text(t('.handle_explanation'))
+.section.invite_friends
+  %h4= 'Followers'
+  - @user.followers.each do |follower|
+    = link_to follower.username, user_path(follower)
+    
+.section.invite_friends
+  %h4= 'Following'
+  - @user.following.each do |following|
+    = link_to following.username, user_path(following)

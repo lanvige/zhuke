@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    %meta{:charset => 'utf-8'}
+    
+    %title 
+      Zhuke....
+      
+    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
+    /= javascript_include_tag "vendor/jquery-1.5.2"
+    = javascript_include_tag "application"
+
+    
+    = yield(:head)
+    
+    = csrf_meta_tag
+    
+    
+    = stylesheet_link_tag 'blueprint/screen.css', :media => 'screen'
+    = stylesheet_link_tag 'blueprint/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'blueprint/ie.css', :media => 'screen, projection'
+
+    = stylesheet_link_tag    "app"
+    = stylesheet_link_tag 'home'
+    = stylesheet_link_tag 'users'
+
+  %body
+    - unless @landing_page
+      #notification
+
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+      
+    %header{:class=>('landing' unless current_user)}
+      = render 'layouts/header'
+    
+    .container
+      .span-24.last
+        = yield
+        
+    .clearfix
+    
+    %footer
+      .container
+        = render 'layouts/footer'
+        
+    = javascript_include_tag :all

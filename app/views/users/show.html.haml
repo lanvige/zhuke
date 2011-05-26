@@ -1,0 +1,11 @@
+.span-15.append-1
+  #stream_container
+    = render 'shared/publisher'
+    #main_stream.stream
+      = render 'shared/stream', 
+        :contents => @contents,
+        :user => @user
+        
+%input{ :type=>'hidden', :id=>'user_slug', :value=>@user.slug}
+.span-8.last
+  = render "sidebar", :user => @user

@@ -1,0 +1,42 @@
+#sidebar
+  .profile_photo
+    %a{ :href => "#" }
+      %img{ :class => "avatar", :src => "/images/thumb_large.jpg" }
+
+  .box
+    .inner
+      - if current_user and current_user != @user
+        - if current_user.followed?(@user)
+          = link_to '取消关注', "javascript:void(0);", :id => 'unfollow', :class => "gray_button"
+        - else
+          = link_to '关注', "javascript:void(0);", :id => 'follow', :class => "gray_button green_button"
+          
+  .box.gray
+    %h2
+    %ul.follow-stats
+      %li
+        %a{ :href => followers_user_path(@user) }
+          %strong
+            = @user.follower_ids.size 
+          %span 关注他的人
+      %li.last
+        %a{:href => "/users/zheli/following"}
+          %strong
+            = @user.following_ids.size
+          %span 他关注的人
+    %br
+    .user-regdate 注册于 2011年4月12日
+    
+  .box.gray
+    %h2
+      关注
+      %a{:href => "/users/zheli/following_topics"} 1个话题  
+  %h4
+    BIO
+  %div
+    17 years old, German, specialised computer scientist for software development (Uhh, I LOVE that job-title). Started coding in the age of 11. Killing free- and worktime engineering and developing the cloud. Working with Python, Rails, PHP and JS.</em>
+    %br
+    %br
+    Living in southern Germany (Balingen, BW). Able to develop Android-Apps. Loving And yes, I have friends. ;-)
+
+          
