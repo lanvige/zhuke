@@ -1,0 +1,6 @@
+= simple_form_for( :shared, :url => share_recipe_path(@recipe), :remote => true ) do |f|
+  .field
+    = f.text_area :con, :style => "width:420px; height:80px;"
+    
+  .actions
+    = f.submit 'Save'

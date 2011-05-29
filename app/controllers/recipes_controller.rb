@@ -42,4 +42,23 @@ class RecipesController < ContentsController
     @recipe = Recipe.find(params[:id])
     @recipe.destory
   end
+  
+  def share
+    @shared = Shared.new(params[:shared])
+    #@content = Content.find(params[:id])
+    #@shared.content_id = params[:id]
+    
+    @content = Content.find(params[:id])
+    @shared.content = @content
+    
+    respond_to do |format|
+      if @shared.save
+        format.html
+        format.js
+      else
+        format.html
+        format.xml
+      end
+    end
+  end
 end

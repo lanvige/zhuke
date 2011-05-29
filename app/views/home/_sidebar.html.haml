@@ -1,5 +1,5 @@
 #home_user_badge
-  %img{ :class => "avatar", :src => "/images/thumb_small.jpg" }
+  = image_tag('thumb_small.jpg',  :class => "avatar")
   %h3{:style => "position:relative;"}
     = current_user.username
     .description

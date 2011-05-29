@@ -21,6 +21,7 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
+gem "simple_form"
 
 
 # Use unicorn as the web server

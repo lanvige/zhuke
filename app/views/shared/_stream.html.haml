@@ -3,7 +3,7 @@
     .stream_element{ :data => { :guid => content.id } }
       .sm_body
         %a{ :herf => "/" }
-          %img{ :class => "avatar", :src => "/images/thumb_small.jpg" }
+          = image_tag('thumb_small.jpg',  :class => "avatar")
           
         .content
           .from

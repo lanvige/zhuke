@@ -16,7 +16,7 @@ Zhuke::Application.routes.draw do
   end  
   
   resources :recipes do
-    resources :comments
+    resources :comments, :controller => "comments"
     member do
       post "share"
     end

@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 
   def new
     @content = Content.find(params[:recipe_id])
-    @comment = @content.comments.new
+    @comment = @content.comments.build
   end
 
   def edit
@@ -33,10 +33,9 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-    @comment = Comment.new(params[:comment])
-    @comment.content = Content.find(params[:recipe_id])
-    @recipe = Recipe.find(params[:recipe_id])
-    
+    @content = Content.find(params[:recipe_id])
+    @comment = @content.comments.build(params[:comment])
+
     if @comment.save
       respond_to do |format|
         format.html { redirect_to(@recipe, :notice => 'Comment was successfully created.') }
