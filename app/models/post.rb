@@ -1,8 +1,8 @@
-class Content
+class Post
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  belongs_to :user, :inverse_of => :contents
+  belongs_to :user, :inverse_of => :posts
   
   has_many :comments
   

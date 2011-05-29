@@ -1,4 +1,4 @@
-class RecipesController < ContentsController
+class RecipesController < PostsController
   
   def index
     @recipes = Recipe.all
@@ -48,8 +48,9 @@ class RecipesController < ContentsController
     #@content = Content.find(params[:id])
     #@shared.content_id = params[:id]
     
-    @content = Content.find(params[:id])
-    @shared.content = @content
+    @post = Post.find(params[:id])
+    @shared.post = @post
+    @shared.user_id = current_user.id
     
     respond_to do |format|
       if @shared.save

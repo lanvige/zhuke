@@ -1,4 +1,4 @@
-class Recipe < Content
+class Recipe < Post
   
   field :title
   field :slug

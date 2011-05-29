@@ -1,14 +1,14 @@
-- if contents.length > 0
-  - for content in contents
-    .stream_element{ :data => { :guid => content.id } }
+- if posts.length > 0
+  - for post in posts
+    .stream_element{ :data => { :guid => post.id } }
       .sm_body
         %a{ :herf => "/" }
           = image_tag('thumb_small.jpg',  :class => "avatar")
           
         .content
           .from
-            =link_to content.title, content
+            = link_to "post.title", post
           %p
-            =link_to content.user.username, user_path(content.user)
+            = link_to post.user.username, user_path(post.user)
           %p
-            = (content.content).html_safe
+            = (post.content).html_safe

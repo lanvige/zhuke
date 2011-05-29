@@ -30,7 +30,8 @@ class User
   attr_accessible :username, :email, :password, :avatar, :password_confirmation, :remember_me
   
   # embed
-  has_many :contents, :class_name => "Content"
+  has_many :posts, :class_name => "Post"
+  has_many :comments, :class_name => "Comment"
   
   # def self.find_by_username(id)
   #  first(:conditions => {:username => id}) 

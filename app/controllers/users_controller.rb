@@ -28,8 +28,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by_slug(params[:id])
-    puts @user.username
-    @contents = @user.contents.all
+    @posts = @user.posts.all
   end
 
   def follow

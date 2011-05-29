@@ -16,8 +16,10 @@
   %tr
   - @comments.each do |comment|
     %tr
+      %td
+        = comment.user.username
       %td 
-        = comment.con
+        = comment.content
 
 = render"comment"
 

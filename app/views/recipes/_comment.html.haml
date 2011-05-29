@@ -1,6 +1,6 @@
 = form_for([@recipe, Comment.new], :remote => true, :html => {"data-type" => "json"}) do |f|
   .field
-    = f.text_area :con, :style => "width:420px; height:80px;"
+    = f.text_area :content, :style => "width:420px; height:80px;"
     
   .actions
     = f.submit 'Save'

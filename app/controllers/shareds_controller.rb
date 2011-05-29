@@ -1,4 +1,4 @@
-class SharedsController < ContentsController
+class SharedsController < PostsController
   def index
      @shareds = Shared.all
    end
