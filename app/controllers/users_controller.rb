@@ -51,9 +51,20 @@ class UsersController < ApplicationController
   end
   
   def following
+    @user = User.find_by_slug(params[:id])
+    @following = @user.following
+    
+    if params[:format] == "js"
+      render "following.js"
+    else
+      render "following"
+    end
+  end
+  
+  def followers
+    @user = User.find_by_slug(params[:id])
     @per_page = 10
-    @followers = @user.following.desc("$natural")
-                  .paginate(:page => params[:page], :per_page => @per_page)
+    @followers = @user.followers
     
     if params[:format] == "js"
       render "followers.js"

@@ -9,6 +9,7 @@ Zhuke::Application.routes.draw do
                                       :invitations   => "invitations"}
   resources :users do
     member do
+      get "following"
       post "follow"
       get "followers"
       post "unfollow"

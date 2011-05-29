@@ -1,0 +1,12 @@
+.content
+  .from
+    = post.user.username
+    Shared the content 
+    = link_to post.post.title, post.post
+  %p
+    = link_to post.user.username, user_path(post.user)
+  %p
+    = (post.content).html_safe
+  %br
+  %hr
+    = (post.post.content).html_safe

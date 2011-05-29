@@ -4,11 +4,10 @@
       .sm_body
         %a{ :herf => "/" }
           = image_tag('thumb_small.jpg',  :class => "avatar")
-          
-        .content
-          .from
-            = link_to "post.title", post
-          %p
-            = link_to post.user.username, user_path(post.user)
-          %p
-            = (post.content).html_safe
+        - case post._type
+          - when "Recipe"
+            = render 'shared/recipe',
+              :post => post
+          - when "Shared"
+            = render 'shared/shared',
+              :post => post
