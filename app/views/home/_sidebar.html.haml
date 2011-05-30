@@ -1,5 +1,8 @@
 #home_user_badge
-  = image_tag('thumb_small.jpg',  :class => "avatar")
+  - if not @user.avatar.blank?
+    = image_tag( @user.avatar.thumb.url, :class => "avatar" )
+  - else
+    = image_tag( 'avatar_default.gif', :class => "avatar" )
   %h3{:style => "position:relative;"}
     = current_user.username
     .description

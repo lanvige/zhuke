@@ -1,10 +1,10 @@
 class UserMailer < BaseMailer
 
   def registration_confirmation(user)
-    @title = "欢迎加入[#{Setting.app_name}]"
+    @title = "Welcometo Zhuke"
     
     #https://github.com/plataformatec/devise/blob/master/app/mailers/devise/mailer.rb
-    mail(:to => user.email, :subject => @title, :from => Setting.email_sender)  
+    mail(:to => user.email, :subject => @title, :from => "zhuke.me@gmail.com")  
   end
 
 end
