@@ -19,7 +19,7 @@ class User
   # define the slug for mongoid_slug
   slug :username
   
-  #mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
   
   validates_presence_of :username
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
@@ -33,9 +33,6 @@ class User
   has_many :posts, :class_name => "Post"
   has_many :comments, :class_name => "Comment"
   
-  # def self.find_by_username(id)
-  #  first(:conditions => {:username => id}) 
-  # end
   
   # Socical
   references_and_referenced_in_many :following, :class_name => 'User', :inverse_of => :followers, :index => true, :stored_as => :array

@@ -22,7 +22,11 @@ gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
 gem "simple_form"
+gem 'will_paginate'
 
+# File uploading
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use unicorn as the web server
 # gem 'unicorn'

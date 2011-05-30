@@ -33,11 +33,14 @@
   %br
 
 
-  - simple_form_for(@user, :html => { :enctype =>  "multipart/form-data" }) do |f|
+  = simple_form_for(@user, :html => { :enctype =>  "multipart/form-data" }) do |f|
     %p
-      = f.input :avatar
-      
+      = f.input :avatar, :label => "头像"
+      = if not @user.avatar.blank?
+        .row
+          %label 预览
+          = image_tag( @user.avatar.thumb.url)
     .submit_block
-      = f.button :submit, :label => 'Change Password', :value => 'Update'
+      = f.button :submit, :label => 'Update user', :value => 'Update'
       Or
       = link_to 'Cancel', edit_user_path(current_user) 

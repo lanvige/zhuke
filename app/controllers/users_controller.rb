@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(cpanel_users_path, :notice => 'User Update Successful') }
+        format.html { redirect_to(users_path, :notice => 'User Update Successful') }
         format.json
       else
         format.html { render :action => "edit" }
