@@ -1,0 +1,21 @@
+default: &defaults
+  app_name: "Zhuke.me"
+
+  # 网站的域名
+  domain: "127.0.0.1:3000"
+  
+  # 配置图片的域名
+  upload_url: "http://127.0.0.1:3000/uploads"
+
+  # 设置管理员，在下面填写需要设置为管理员的用户 email
+  admin_emails: 
+    - "lanvige@gmail.com"
+  email_sender: 'zhuke.me@zhuke.org'
+  aws_access_key_id: 'your aws access_key_id'
+  aws_secret_access_key: 'your aws secret_access_key'
+  
+  # 是否开放注册
+  allow_register: true
+
+development:
+  <<: *defaults
