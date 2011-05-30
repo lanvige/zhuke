@@ -3,8 +3,8 @@
     .stream_element{ :data => { :guid => post.id } }
       .sm_body
         %a{ :herf => "/" }
-          - if not @user.avatar.blank?
-            = image_tag( @user.avatar.thumb.url, :class => "avatar" )
+          - if not post.user.avatar.blank?
+            = image_tag( post.user.avatar.thumb.url, :class => "avatar" )
           - else
             = image_tag( 'avatar_default.gif', :class => "avatar" )
         - case post._type

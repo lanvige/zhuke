@@ -4,7 +4,7 @@ class Post
 
   belongs_to :user, :inverse_of => :posts
   
-  has_many :comments
+  embeds_many :comments
   
   # The content has been shards.
   has_many :shards

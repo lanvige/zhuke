@@ -5,5 +5,5 @@ class Comment
   field :content
 
   belongs_to :user
-  belongs_to :post
+  embedded_in :post
 end

@@ -7,7 +7,7 @@ class User
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :timeoutable
+         :timeoutable, :confirmable
 
   # field
   field :username
@@ -33,7 +33,6 @@ class User
   has_many :posts, :class_name => "Post"
   has_many :comments, :class_name => "Comment"
   
-  
   # Socical
   references_and_referenced_in_many :following, :class_name => 'User', :inverse_of => :followers, :index => true, :stored_as => :array
   references_and_referenced_in_many :followers, :class_name => 'User', :inverse_of => :following, :index => true, :stored_as => :array
@@ -53,6 +52,18 @@ class User
     
     user.followers.delete(self)
     user.save
+  end
+  
+  # devise confirm! method overriden
+  def confirm!
+    welcome_message
+    super
+  end
+  
+private
+
+  def welcome_message
+    UserMailer.registration_confirmation(self).deliver
   end
 end
 

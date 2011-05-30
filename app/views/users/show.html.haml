@@ -7,4 +7,5 @@
         
 %input{ :type=>'hidden', :id=>'user_slug', :value=>@user.slug}
 .span-8.last
+  = @user.avatar.thumb.url
   = render "sidebar", :user => @user
