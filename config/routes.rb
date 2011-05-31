@@ -6,7 +6,17 @@ Zhuke::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations",
                                       #:sessions => "sessions",
                                       :password      => "devise/passwords",
-                                      :invitations   => "invitations"}
+                                      :invitations   => "invitations",
+                                      :omniauth_callbacks => "users/omniauth_callbacks" } do
+    get "/register", :to => "devise/registrations#new" 
+    get "/login", :to => "devise/sessions#new" 
+    get "/logout", :to => "devise/sessions#destroy"
+  end
+  
+  # omniauth client stuff
+  match '/auth/:provider/callback', :to => 'users#auth_callback'
+  match '/auth/failure', :to => 'users#auth_failure'
+    
   resources :users do
     member do
       get "following"

@@ -7,27 +7,30 @@ class User
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :timeoutable, :confirmable
+         :timeoutable, :confirmable, :omniauthable
 
   # field
-  field :username
+  field :name
   field :email
   field :avatar
   field :bio
   field :website
   
   # define the slug for mongoid_slug
-  slug :username
+  slug :name
   
   mount_uploader :avatar, AvatarUploader
   
-  validates_presence_of :username
-  validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
-  validates_length_of :username, :maximum => 32
-  validates_uniqueness_of :username, :email, :case_sensitive => false
+  validates_presence_of :name
+  validates_format_of :name, :with => /\A[A-Za-z0-9_]+\z/
+  validates_length_of :name, :maximum => 32
+  validates_uniqueness_of :name, :email, :case_sensitive => false
   
   attr_accessor  :password_confirmation
-  attr_accessible :username, :email, :password, :avatar, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :avatar, :password_confirmation, :remember_me
+  
+  # OmniAuth
+  embeds_many :authorizations
   
   # embed
   has_many :posts, :class_name => "Post"
@@ -58,6 +61,26 @@ class User
   def confirm!
     welcome_message
     super
+  end
+  
+  # Create OmniAuth
+  def self.create_from_hash(omniauth)  
+    user = User.new
+    user.name = omniauth["user_info"]["name"]
+    Rails.logger.info user.name
+    user.email = 'lanvige@126.com'
+    Rails.logger.info user.email
+    if user.email.blank?
+      Rails.logger.error "Worng email infomation!"
+      #return user
+    end
+    if( user.save )
+      Rails.logger.info 'user saved!!!!!!!!!'
+    else
+      Rails.logger.info user.errors
+    end
+    
+    user
   end
   
 private

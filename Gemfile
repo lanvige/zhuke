@@ -9,6 +9,8 @@ gem 'rails', '3.1.0.rc1'
 gem "devise", ">= 1.3.3"
 gem 'devise_invitable'
 
+# OAuth
+gem 'omniauth'
 
 # Database
 gem "bson_ext", ">= 1.3.0"
@@ -27,6 +29,9 @@ gem 'will_paginate'
 # File uploading
 gem 'carrierwave'
 gem 'mini_magick'
+
+# XML setting
+gem 'settingslogic'
 
 # Use unicorn as the web server
 # gem 'unicorn'
