@@ -19,6 +19,6 @@ en:
     #     edit:
     #       email: 'E-mail.'
     # hints:
-    #   username: 'User name to sign in.'
+    #   name: 'User name to sign in.'
     #   password: 'No special characters, please.'
 

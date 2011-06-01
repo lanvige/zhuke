@@ -1,18 +1,9 @@
-= form_for @recipe do |f|
+= simple_form_for @recipe do |f|
+
+  = f.input :title
+  = f.input :description, :as => :text
+  = f.input :picture
+  = f.input :material, :as => :text
+  = f.input :step, :as => :text
   
-  %br
-  .section
-    .label title
-    = f.text_field :title, :id => "title", :style => "width:600px;"
-
-    .label content
-    = f.text_area :content, :style => "height:400px;width:600px"
-
-    %br
-    .label slug
-    = f.text_field :slug, :id => "slug"
-  %br
-  %br
-	
-  .buttonbar
-  = f.submit 'Save'
+  = f.button :submit

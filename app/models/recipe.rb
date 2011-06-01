@@ -1,12 +1,13 @@
 class Recipe < Post
-  
   field :title
-  field :slug
+  field :description
+  field :picture
+  field :material
+  field :step
+  #field :status
+  #field :public
+  #field :slug
   
-  field :content
-  field :content_filtered
-  field :status
-  
-  field :public
-  
+  mount_uploader :picture, RecipeUploader
+    
 end

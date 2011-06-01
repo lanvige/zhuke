@@ -1,10 +1,10 @@
-#publisher{:class => "closed" }
+#publisher{ :class => "closed" }
   .right
     = link_to 'New Recipe', new_recipe_path, :class => "button"
     = link_to 'New Status', new_recipe_path, :class => "button"
     = link_to 'New Photo', new_recipe_path, :class => "button"
   %h3
-    = @user.username
+    = @user.name
     .description
       = link_to 'New Recipe', new_recipe_path
       = link_to 'New Photo', new_recipe_path

@@ -4,16 +4,16 @@
   - else
     = image_tag( 'avatar_default.gif', :class => "avatar" )
   %h3{:style => "position:relative;"}
-    = current_user.username
+    = current_user.name
     .description
-      = link_to current_user.username, user_path(current_user)
+      = link_to current_user.name, user_path(current_user)
       /= info_text(t('.handle_explanation'))
 .section.invite_friends
   %h4= 'Followers'
   - @user.followers.each do |follower|
-    = link_to follower.username, user_path(follower)
+    = link_to follower.name, user_path(follower)
     
 .section.invite_friends
   %h4= 'Following'
   - @user.following.each do |following|
-    = link_to following.username, user_path(following)
+    = link_to following.name, user_path(following)

@@ -1,10 +1,10 @@
-= form_for [@post, @comment] do |f|
+= simple_form_for [@post, @comment] do |f|
   = @post.title
   %br
   = @post.id
   %br
   .field
-    = f.text_area :content, :style => "width:420px; height:80px;"
+    = f.input :content, :as => :text, :style => "width:420px; height:80px;"
     
   .actions
-    = f.submit 'Save'
+    = f.button :submit

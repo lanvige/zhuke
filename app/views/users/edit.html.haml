@@ -20,7 +20,7 @@
     %h3
       = 'Your Handle'
     %p
-      %b= current_user.username
+      %b= current_user.name
   .span-8.last
     %h3
       = 'your_email'
@@ -33,7 +33,7 @@
   %br
 
 
-  = simple_form_for(@user, :html => { :enctype =>  "multipart/form-data" }) do |f|
+  = simple_form_for( @user, :html => { :enctype =>  "multipart/form-data" } ) do |f|
     %p
       = f.input :avatar, :label => "头像"
       = if not @user.avatar.blank?

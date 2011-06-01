@@ -1,26 +1,51 @@
-%h1
-  = @recipe.title
+.span-15.append-2
+  #stream_container
+    %h1
+      = (@recipe.title).html_safe
+  
+    %h5
+      = image_tag( @recipe.picture.url )
 
-%br
-= (@recipe.content).html_safe
+    = (@recipe.description).html_safe
 
-%br
-%br
-= link_to 'Edit Recipe', edit_recipe_path(@recipe)
+    .recipe_info
+      .ll
+        .recipe-star-block
+        .recipe-stats 318浏览
+        .uncollect 取消
+        .uncollect + 收藏
+     
+    Up load my recipe !!! --------------------------------   shared to Weibo, Douban
+    %br
+    %br
+    %hr
+    = (@recipe.material).html_safe
+    %br
+    %hr
+    %br
+    = (@recipe.step).html_safe
 
-%br
-%br
+    %br
+    %br
+    = link_to 'Edit Recipe', edit_recipe_path(@recipe)
 
-%h5 Comments
-%table
-  %tr
-  - @comments.each do |comment|
-    %tr
-      %td
-        = comment.user.username
-      %td 
-        = comment.content
+    %br
+    %br
 
-= render"comment"
+    %h5 Comments
+    %table
+      %tr
+      - @comments.each do |comment|
+        %tr
+          %td
+            = comment.user.name
+          %td 
+            = comment.content
 
-= render "share"
+    = render"comment"
+
+    = render "share"
+    
+/ Show the right sidebar
+.span-7.last{:style => "height:400px;"}
+  = @recipe.user.name

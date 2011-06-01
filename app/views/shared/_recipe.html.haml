@@ -2,6 +2,9 @@
   .from
     = link_to post.title, post
   %p
-    = link_to post.user.username, user_path(post.user)
+    = link_to post.user.name, user_path(post.user)
   %p
-    = (post.content).html_safe
+    - if post.attribute_present? 'picture_filename'
+      = image_tag( post.picture.thumb.url )
+    %br
+    = (post.description).html_safe

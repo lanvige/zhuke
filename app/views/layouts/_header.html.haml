@@ -15,7 +15,7 @@
 
       - elsif (current_user || !@landing_page)
         = link_to 'Users', users_path
-        = link_to current_user.username, current_user
+        = link_to current_user.name, current_user
         %li
           = link_to 'Profile', edit_user_path(current_user)
         %li
