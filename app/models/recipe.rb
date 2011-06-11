@@ -8,6 +8,6 @@ class Recipe < Post
   #field :public
   #field :slug
   
-  mount_uploader :picture, RecipeUploader
+  #mount_uploader :picture, RecipeUploader
     
 end
